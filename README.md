@@ -70,9 +70,10 @@ Then [I can respond to the share]
 Then [I can watch gameplay footage online] 
 
 <br/>
+
 ## Class Diagram 
 
- 
+wip
 
 ## Class Diagram Description 
 
