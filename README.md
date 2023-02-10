@@ -15,6 +15,7 @@ But what if there was a way to catalog and rank all games, just for yourself? In
 
 ## Storyboard  
 
+<img width="968" alt="My storyboard" src="https://user-images.githubusercontent.com/26129706/218202488-576f2ba3-9055-4b77-9c7d-d960fc0a2e78.png">
 
 
 ## Functional Requirements  
@@ -73,7 +74,7 @@ Then [I can watch gameplay footage online]
 
 ## Class Diagram 
 
-wip
+![IMG_8520](https://user-images.githubusercontent.com/26129706/218202125-de7c815f-fa9e-4da6-ba44-9a2c2c8a2073.jpg)
 
 ## Class Diagram Description 
 
