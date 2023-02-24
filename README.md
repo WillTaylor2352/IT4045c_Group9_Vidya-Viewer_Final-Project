@@ -74,7 +74,8 @@ Then [I can watch gameplay footage online]
 
 ## Class Diagram 
 
-![IMG_8520](https://user-images.githubusercontent.com/26129706/218202125-de7c815f-fa9e-4da6-ba44-9a2c2c8a2073.jpg)
+<img width="2170" alt="group9 UML diagram" src="https://user-images.githubusercontent.com/26129706/221246819-c6db7043-2cf7-4647-974a-c0e16b0f1f87.png">
+
 
 ## Class Diagram Description 
 
