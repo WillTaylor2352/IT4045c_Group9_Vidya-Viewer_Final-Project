@@ -20,8 +20,6 @@ But what if there was a way to catalog and rank all games, just for yourself? In
 
 ## Functional Requirements  
 
- 
-
 Given [I have accessed the application] 
 
 When [I search for a game] 
@@ -74,52 +72,45 @@ Then [I can watch gameplay footage online]
 
 ## Class Diagram 
 
-<img width="2170" alt="group9 UML diagram" src="https://user-images.githubusercontent.com/26129706/221246819-c6db7043-2cf7-4647-974a-c0e16b0f1f87.png">
-
+<img width="2170" alt="group9 UML diagram" src="https://user-images.githubusercontent.com/26129706/221247531-39eca524-64c1-418f-af64-9f44e1c1939c.png">
 
 ## Class Diagram Description 
 
-1. Interface Package 
+1. DTO Package
 
-Sharable interface will be implemented by the GameDTO and CategoriesDTO, as those objects should be able to be shared between Users. It has two instance variables – a “from user” and a “to user” with one method: “share to user”  
+This package contains the classes used to transfer data across the application. Each class has variables with getters and setters for all attributes. 
 
-AddAndRemovable interface acts as a template for objects that can be added and removed from a class. It is implemented by all members of the Logic class.  
+2. UI package
 
-2. Service package 
+This package contains the intended views that should display through normal use of the applications. There is a controller listed that has get and post methods that help to define the flow direction, as well as the general idea of what will be occurring during the operation.  
 
-GameDTO will be a transfer object populated with instance variables describing the Game Object 
+3. Service
 
-UserDTO will be a transfer object populated with instance variables describing the User Object 
+This package will take some explaining. I initially intended on have the leftmost-groups located within the UI package, as members of the controller operations. However it seemed better suited for them to be a breakout of the methods found within the Interfaces of the Service package. By structuring it in this way,  I am able to show how each method should map to individual views, as mandated by the controller. The benefit here being one implementation by the controller for all interface methods. Extensibility can be handled within the UI layer, and objects seem like they will be easier to handle and interact with.  
 
-CategoriesDTO will be a transfer object populated with instance variables describing the Categories Object 
+4. DAO
 
-3. Logic 
+These interfaces hold the methods used to communicate with persistent storage. The interfaces will be realized by the DAO objects and will perform CRUD operations. 
 
-GameDAO implements AddAndRemovable and holds methods related to the specific nature of the game object. It will initialize the DTO and be presented by the controller in a view (html file not on this document) 
+## TRELLO link for Scrum tasks 
 
-UserDAO implements AddAndRemovable and holds methods related to the specific nature of the user object. It will initialize the DTO and be presented by the controller in a view (html file not on this document) 
+Previously integrated through Github Projects. Change was made due to lack of legacy coverage (Forced deprecation).  
 
-CategoriesDAO implements AddAndRemovable and holds methods related to the specific nature of the categories object. It will initialize the DTO and be presented by the controller in a view (html file not on this document) 
+~~https://github.com/users/WillTaylor2352/projects/1~~  
 
-4. Controller 
+This project is now managed (MUCH more easily) through Trello, updates on development tasks can be found there. 
 
-Consumes requests sent by the user. Calls methods from the DAO’s when necessary and serves appropriate HTML responses where appropriate.  
-
-Github projects link for Scrum tasks 
-
-Strongly integrated with github. Will make for a much easier time when committing, collaborating on tasks, and automation.  
-
-https://github.com/users/WillTaylor2352/projects/1  
+https://trello.com/b/KYVkLC2x/it4045c-group-9-vidya-viewer
 
 ## Scrum Roles: 
 
 Product owner: William Taylor 
 
-UI Expert:  
+UI Expert:  Couri Wilson
 
 Database Expert: Blake Schriewer 
 
-Additional Support:  
+Additional Support:  Zion Ivery
 
 ## Github Link:  
 
