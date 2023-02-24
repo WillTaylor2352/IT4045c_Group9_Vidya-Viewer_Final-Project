@@ -94,7 +94,7 @@ These interfaces hold the methods used to communicate with persistent storage. T
 
 ## TRELLO link for Scrum tasks 
 
-Previously integrated through Github Projects. Change was made due to lack of legacy coverage (Forced deprecation).  
+Previously integrated through Github Projects. Change was made due to lack of legacy coverage (Forced deprecation of Github Projects (Classic) - R.I.P).  
 
 ~~https://github.com/users/WillTaylor2352/projects/1~~  
 
