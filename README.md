@@ -15,8 +15,7 @@ But what if there was a way to catalog and rank all games, just for yourself? In
 
 ## Storyboard  
 
-<img width="968" alt="My storyboard" src="https://user-images.githubusercontent.com/26129706/218202488-576f2ba3-9055-4b77-9c7d-d960fc0a2e78.png">
-
+![group9 storyboard](https://user-images.githubusercontent.com/26129706/221280913-78fdf815-5d94-4a87-97a9-01441be05ad5.png)
 
 ## Functional Requirements  
 
