@@ -8,11 +8,13 @@
 </head>
 <body >
 	<div th:replace="~{fragments/navigation :: site-navbar}"></div>
-	<!--
-		NOTE: all code above this note, as well as this note itself, should be reused in all HTML files
-	-->
+	<!--this div controlls the central width of the screen and should be included on all pages (development is being optimized for desktops)-->
+	<div style="width: 70%; min-width: 880px;" class="m-auto mt-4 ">
+	<!--		NOTE: all code above this note, as well as this note itself, should be reused in all HTML files	-->
 
-<body>
-<img src="https://i.ytimg.com/vi/frszEJb0aOo/maxresdefault.jpg" width=50% />
+	<iframe width="100%" height="600px" src="https://www.youtube.com/embed/rEq1Z0bjdwc" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+
+	<!--		NOTE: everything after this point should be loaded on all pages. 	-->
+</div>
 </body>
 </html>

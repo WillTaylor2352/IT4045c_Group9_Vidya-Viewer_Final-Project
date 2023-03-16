@@ -9,11 +9,9 @@
 </head>
 <body >
 	<div th:replace="~{fragments/navigation :: site-navbar}"></div>
-	<!--
-		NOTE: all code above this note, as well as this note itself, should be reused in all HTML files
-	-->
-
-	<div style="width: 60%; min-width: 50%;" class="m-auto mt-4 ">
+	<!--this div controlls the central width of the screen and should be included on all pages (development is being optimized for desktops)-->
+	<div style="width: 70%; min-width: 880px;" class="m-auto mt-4 ">
+	<!--		NOTE: all code above this note, as well as this note itself, should be reused in all HTML files	-->
 		Welcome to my simple index page.
 		<br/>
 		please navigate <a href="/start">here</a> or <a href="/start?loyalty=silver">here</a> to see models being passed with data.
@@ -21,6 +19,7 @@
 		<h1><a href="/hellothere">Hello There..</a></h1>
 		
 
-	</div>
+	<!--		NOTE: everything after this point should be loaded on all pages. 	-->
+</div>
 </body>
 </html>
