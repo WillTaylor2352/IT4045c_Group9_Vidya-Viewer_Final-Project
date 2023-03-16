@@ -33,14 +33,19 @@ public class VidyaViewerController {
 		return "index";
 	}
 
-	@GetMapping("/start")
-	public String start() {
-		return "start";
+	@GetMapping("/games")
+	public String loadGames() {
+		return "games";
 	}
 
 	@GetMapping("/hellothere")
-	public String hellothere() {
+	public String helloThere() {
 		return "hellothere";
+	}
+
+	@GetMapping("/profile")
+	public String showProfile() {
+		return "profile";
 	}
 
 }
