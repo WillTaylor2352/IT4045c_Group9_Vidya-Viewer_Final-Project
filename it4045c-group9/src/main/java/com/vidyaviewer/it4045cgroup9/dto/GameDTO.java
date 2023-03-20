@@ -4,7 +4,7 @@ public class GameDTO {
 
 	private int gameID;
 	private String title;
-	private float myRating;
+	private double myRating;
 	private String userDescription;
 
 	// ---------------------------------
@@ -26,11 +26,11 @@ public class GameDTO {
 	}
 
 	// ---------------------------------
-	public float getMyRating() {
+	public double getMyRating() {
 		return myRating;
 	}
 
-	public void setMyRating(float myRating) {
+	public void setMyRating(double myRating) {
 		this.myRating = myRating;
 	}
 
@@ -43,4 +43,9 @@ public class GameDTO {
 		this.userDescription = userDescription;
 	}
 	// ---------------------------------
+
+	@Override
+	public String toString() {
+		return "Title: " + this.title + ", My Rating: " + this.myRating + ", Description: " + this.userDescription;
+	}
 }
