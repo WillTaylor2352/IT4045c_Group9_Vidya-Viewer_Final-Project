@@ -35,6 +35,14 @@
 			<artifactId>spring-boot-starter-web</artifactId>	
 		</dependency>
 
+		<!--https://mvnrepository.com/artifact/org.json/json-->
+		<!--version reccomendation is 20220924-->
+		<dependency>
+			<groupId>org.json</groupId>
+			<artifactId>json</artifactId>
+			<version>20220924</version>
+		</dependency>
+
 	</dependencies>
 
 	<build>
