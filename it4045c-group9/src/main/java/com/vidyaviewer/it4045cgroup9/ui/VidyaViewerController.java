@@ -9,6 +9,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.vidyaviewer.it4045cgroup9.service.ILoadableDAO;
+import com.vidyaviewer.it4045cgroup9.service.IShareableDAO;
+import com.vidyaviewer.it4045cgroup9.service.LoadableStub;
+import com.vidyaviewer.it4045cgroup9.service.ShareableStub;
+
 @Controller
 public class VidyaViewerController {
 	/*
@@ -28,6 +33,12 @@ public class VidyaViewerController {
 	 * Post shareCategory
 	 * Post addMyRating
 	 */
+	@Autowired
+	private ILoadableDAO loadableStub;
+
+	@Autowired
+	private IShareableDAO sharableStub;
+
 	@GetMapping("/")
 	public String readindex() {
 		return "index";
@@ -46,6 +57,12 @@ public class VidyaViewerController {
 	@GetMapping("/profile")
 	public String showProfile() {
 		return "profile";
+	}
+
+	@RequestMapping(value = "/test", method = RequestMethod.GET)
+	public String read() {
+		loadableStub.fetchByID(1);
+		return "test";
 	}
 
 }
