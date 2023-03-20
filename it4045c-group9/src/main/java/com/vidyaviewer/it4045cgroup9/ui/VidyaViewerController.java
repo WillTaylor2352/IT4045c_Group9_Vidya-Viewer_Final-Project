@@ -77,7 +77,7 @@ public class VidyaViewerController {
 	public String searchGames(
 			@RequestParam(value = "searchTerm", required = false, defaultValue = "") String searchTerm) {
 		String enchancedTerm = searchTerm + "";
-		return ("hellothere");
+		return ("index");
 	}
 
 }
