@@ -34,7 +34,7 @@ public class VidyaViewerController {
 	 * Post addMyRating
 	 */
 	@Autowired
-	private IServiceDAO loadableService;
+	private IServiceDAO serviceDAO;
 
 	@RequestMapping(value = "saveGameData")
 	public String saveGameData(GameDTO gameDTO) {
