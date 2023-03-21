@@ -5,7 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import com.vidyaviewer.it4045cgroup9.dao.IGameDAO;
 import com.vidyaviewer.it4045cgroup9.dto.GameDTO;
 
-public class LoadableDAO implements ILoadableDAO {
+public class ServiceDAO implements IServiceDAO {
 
 	@Autowired
 	IGameDAO gameDAO;

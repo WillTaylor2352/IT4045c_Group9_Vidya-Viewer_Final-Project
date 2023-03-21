@@ -11,10 +11,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.vidyaviewer.it4045cgroup9.dto.GameDTO;
-import com.vidyaviewer.it4045cgroup9.service.ILoadableDAO;
-import com.vidyaviewer.it4045cgroup9.service.IShareableDAO;
-import com.vidyaviewer.it4045cgroup9.service.LoadableStub;
-import com.vidyaviewer.it4045cgroup9.service.ShareableStub;
+import com.vidyaviewer.it4045cgroup9.service.IServiceDAO;
+import com.vidyaviewer.it4045cgroup9.service.ServiceStub;
 
 @Controller
 public class VidyaViewerController {
@@ -36,10 +34,7 @@ public class VidyaViewerController {
 	 * Post addMyRating
 	 */
 	@Autowired
-	private ILoadableDAO loadableService;
-
-	@Autowired
-	private IShareableDAO sharableStub;
+	private IServiceDAO loadableService;
 
 	@RequestMapping(value = "saveGameData")
 	public String saveGameData(GameDTO gameDTO) {

@@ -5,7 +5,7 @@ import org.springframework.stereotype.Component;
 import com.vidyaviewer.it4045cgroup9.dto.GameDTO;
 
 @Component
-public class LoadableStub implements ILoadableDAO {
+public class ServiceStub implements IServiceDAO {
 	/*
 	 * any additional methods added to this class should be added to the Interface
 	 * first
