@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html data-bs-theme="dark">
+<head>
+	<meta charset="ISO-8859-1"/>
+	<title>Vidya Viewer - General Kenobi</title>
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+</head>
+<body >
+	<div th:replace="~{fragments/navigation :: site-navbar}"></div>
+	<!--this div controlls the central width of the screen and should be included on all pages (development is being optimized for desktops)-->
+
+	<p th:text="${gameDTO}"></p>
+
+	<form action="#" th:action="@{/saveGameData}" th:object="${gameDTO}" method="GET">
+		
+		Title: <input type="text" name="title" th:field="*{title}"/><br/>
+		My Rating: <input type="text" name="myRating" th:field="*{myRating}"/><br/>
+		User Description: <input type="text" name="userDescription" th:field="*{userDescription}"/><br/>
+		<button name="submit" type="submit" value="0">Submit</button>
+	</form>
+
+	<!--		NOTE: everything after this point should be loaded on all pages. 	-->
+</div>
+</body>
+</html>
