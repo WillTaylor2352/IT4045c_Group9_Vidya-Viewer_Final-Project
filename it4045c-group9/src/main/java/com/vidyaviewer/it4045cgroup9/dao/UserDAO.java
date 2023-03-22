@@ -1,5 +1,7 @@
 package com.vidyaviewer.it4045cgroup9.dao;
 
-public class UserDAO {
+//implementation should be done here. Uncomment the following line to wire everything up
+//@Component
+public class UserDAO implements IUserDAO {
 
 }

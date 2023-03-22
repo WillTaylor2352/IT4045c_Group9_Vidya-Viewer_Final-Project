@@ -8,6 +8,9 @@ import org.springframework.stereotype.Component;
 
 import com.vidyaviewer.it4045cgroup9.dto.CategoryDTO;
 
+//Stub implementation should be done here. 
+//Comment the following line to disable the component scan to the stub
+//(ENSURE YOU ENABLE COMPONENT IN THE DAO IMPLEMENTATION)
 @Component
 public class CategoryStub implements ICategoryDAO {
 	@Autowired

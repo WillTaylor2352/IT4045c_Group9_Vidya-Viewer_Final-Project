@@ -10,6 +10,7 @@ import org.springframework.stereotype.Component;
 
 import com.vidyaviewer.it4045cgroup9.dto.GameDTO;
 
+//implementation should be done here. Uncomment the following line to wire everything up
 //@Component
 public class GameDAO implements IGameDAO {
 
