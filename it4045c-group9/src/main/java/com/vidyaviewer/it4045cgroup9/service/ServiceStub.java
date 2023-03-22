@@ -17,8 +17,7 @@ public class ServiceStub implements IServiceDAO {
 		GameDTO gameDTO = new GameDTO();
 		gameDTO.setGameID(1);
 		gameDTO.setTitle("Zelda");
-		gameDTO.setMyRating(5);
-		gameDTO.setUserDescription("This game was so much fun to play");
+		gameDTO.setCriticScore(5.0);
 		return gameDTO;
 	}
 

@@ -9,46 +9,57 @@ public class UserDTO {
 	private String email;
 	private String password;
 	private List<UserDTO> listOfFriends;
-	private List<CategoryDTO> categories;
-//USERID---------------------------------	
+	private List<GameDTO> listOfGames;
+
+	// USERID---------------------------------
 	public int getUserID() {
 		return userID;
 	}
-//USERNAME---------------------------------	
+
+	// USERNAME---------------------------------
 	public String getUserName() {
 		return userName;
 	}
+
 	public void setUserName(String userName) {
 		this.userName = userName;
 	}
-//EMAIL---------------------------------	
+
+	// EMAIL---------------------------------
 	public String getEmail() {
 		return email;
 	}
+
 	public void setEmail(String email) {
 		this.email = email;
 	}
-//PASSWORD---------------------------------	
+
+	// PASSWORD---------------------------------
 	public String getPassword() {
 		return password;
 	}
+
 	public void setPassword(String password) {
 		this.password = password;
 	}
-//FRIENDS---------------------------------	
+
+	// FRIENDS---------------------------------
 	public List<UserDTO> getListOfFriends() {
 		return listOfFriends;
 	}
+
 	public void setListOfFriends(List<UserDTO> listOfFriends) {
 		this.listOfFriends = listOfFriends;
 	}
-//CATEGORIES---------------------------------	
-	public List<CategoryDTO> getCategories() {
-		return categories;
+
+	// CATEGORIES---------------------------------
+	public List<GameDTO> getListOfGames() {
+		return listOfGames;
 	}
-	public void setCategories(List<CategoryDTO> categories) {
-		this.categories = categories;
+
+	public void setListOfGames(List<GameDTO> listOfGames) {
+		this.listOfGames = listOfGames;
 	}
-	//---------------------------------	
-	
+	// ---------------------------------
+
 }

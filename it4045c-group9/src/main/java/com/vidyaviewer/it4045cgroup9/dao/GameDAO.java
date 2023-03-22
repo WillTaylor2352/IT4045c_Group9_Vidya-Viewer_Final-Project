@@ -34,9 +34,8 @@ public class GameDAO implements IGameDAO {
 			// RETURNED JSON ARRAY
 			game.setGameID(jsonGames.getInt("id"));
 			game.setTitle(jsonGames.getString("title"));
-			game.setMyRating(jsonGames.getDouble("rating"));
-			game.setUserDescription(jsonGames.getString("description"));
-
+			game.setCriticScore(jsonGames.getDouble("criticScore"));
+			
 			allGames.add(game);
 		}
 

@@ -4,8 +4,7 @@ public class GameDTO {
 
 	private int gameID;
 	private String title;
-	private double myRating;
-	private String userDescription;
+	private double criticScore;
 
 	// ---------------------------------
 	public int getGameID() {
@@ -25,27 +24,16 @@ public class GameDTO {
 		this.title = title;
 	}
 
-	// ---------------------------------
-	public double getMyRating() {
-		return myRating;
+	public double getCriticScore() {
+		return criticScore;
 	}
 
-	public void setMyRating(double myRating) {
-		this.myRating = myRating;
+	public void setCriticScore(double criticScore) {
+		this.criticScore = criticScore;
 	}
-
-	// ---------------------------------
-	public String getUserDescription() {
-		return userDescription;
-	}
-
-	public void setUserDescription(String userDescription) {
-		this.userDescription = userDescription;
-	}
-	// ---------------------------------
 
 	@Override
 	public String toString() {
-		return "Title: " + this.title + ", My Rating: " + this.myRating + ", Description: " + this.userDescription;
+		return "Title: " + this.title;
 	}
 }
