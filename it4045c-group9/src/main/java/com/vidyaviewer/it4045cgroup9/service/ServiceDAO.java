@@ -1,10 +1,14 @@
 package com.vidyaviewer.it4045cgroup9.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
 import com.vidyaviewer.it4045cgroup9.dao.IGameDAO;
 import com.vidyaviewer.it4045cgroup9.dto.GameDTO;
 
+@Component
 public class ServiceDAO implements IServiceDAO {
 
 	@Autowired
@@ -21,4 +25,10 @@ public class ServiceDAO implements IServiceDAO {
 		// TODO Auto-generated method stub
 		throw new UnsupportedOperationException("Unimplemented method 'save'");
 	}
+
+	@Override
+	public List<GameDTO> fetchGames(String string) throws Exception {
+		return gameDAO.fetch("string");
+	}
+
 }

@@ -1,5 +1,7 @@
 package com.vidyaviewer.it4045cgroup9.service;
 
+import java.util.List;
+
 import org.springframework.stereotype.Component;
 
 import com.vidyaviewer.it4045cgroup9.dto.GameDTO;
@@ -22,6 +24,12 @@ public class ServiceStub implements IServiceDAO {
 
 	public void save(GameDTO gameDTO) {
 
+	}
+
+	@Override
+	public List<GameDTO> fetchGames(String string) throws Exception {
+		// TODO Auto-generated method stub
+		throw new UnsupportedOperationException("Unimplemented method 'fetchGames'");
 	}
 
 }
