@@ -8,8 +8,19 @@ public class UserDTO {
 	private String userName;
 	private String email;
 	private String password;
-	private List<UserDTO> listOfFriends;
-	private List<GameDTO> listOfGames;
+
+	// instantiation constructor
+	public UserDTO() {
+	}
+
+	// this constructor used to set the basic data for a user. List of friends and
+	// list of games should be pulled from the DB and should be considered nullable.
+	public UserDTO(int userID, String username, String email, String password) {
+		this.userID = userID;
+		this.userName = username;
+		this.email = email;
+		this.password = password;
+	}
 
 	// USERID---------------------------------
 	public int getUserID() {
@@ -42,24 +53,5 @@ public class UserDTO {
 	public void setPassword(String password) {
 		this.password = password;
 	}
-
-	// FRIENDS---------------------------------
-	public List<UserDTO> getListOfFriends() {
-		return listOfFriends;
-	}
-
-	public void setListOfFriends(List<UserDTO> listOfFriends) {
-		this.listOfFriends = listOfFriends;
-	}
-
-	// CATEGORIES---------------------------------
-	public List<GameDTO> getListOfGames() {
-		return listOfGames;
-	}
-
-	public void setListOfGames(List<GameDTO> listOfGames) {
-		this.listOfGames = listOfGames;
-	}
-	// ---------------------------------
 
 }

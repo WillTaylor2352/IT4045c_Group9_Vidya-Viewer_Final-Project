@@ -27,8 +27,8 @@ public class ServiceDAO implements IServiceDAO {
 	}
 
 	@Override
-	public List<GameDTO> fetchGames(String string) throws Exception {
-		return gameDAO.fetch("string");
+	public List<GameDTO> fetchGamesService(String string) throws Exception {
+		return gameDAO.fetchGames("string");
 	}
 
 }

@@ -1,9 +1,10 @@
 package com.vidyaviewer.it4045cgroup9.dto;
 
+//THIS CLASS USED TO LOGICALLY SEPARATE A USER'S GAME-DESCRIBING DATA FROM THE GLOBAL-GAME DATA
 public class UserGameDTO {
 
 	private int userID;
-	private int GameID;
+	private int gameID;
 	private double userRating;
 	private String userDescription;
 
@@ -16,11 +17,11 @@ public class UserGameDTO {
 	}
 
 	public int getGameID() {
-		return GameID;
+		return gameID;
 	}
 
 	public void setGameID(int gameID) {
-		GameID = gameID;
+		gameID = gameID;
 	}
 
 	// ---------------------------------

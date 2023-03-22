@@ -6,6 +6,15 @@ public class GameDTO {
 	private String title;
 	private double criticScore;
 
+	public GameDTO() {
+	};
+
+	public GameDTO(int gameID, String title, double criticScore) {
+		this.gameID = gameID;
+		this.title = title;
+		this.criticScore = criticScore;
+	}
+
 	// ---------------------------------
 	public int getGameID() {
 		return gameID;

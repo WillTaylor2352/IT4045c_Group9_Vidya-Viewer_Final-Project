@@ -6,6 +6,6 @@ import com.vidyaviewer.it4045cgroup9.dto.GameDTO;
 
 public interface IGameDAO {
 
-	public List<GameDTO> fetch(String searchfilter) throws Exception;
+	public List<GameDTO> fetchGames(String searchfilter) throws Exception;
 
 }

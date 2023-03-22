@@ -1,5 +1,7 @@
 package com.vidyaviewer.it4045cgroup9.ui;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -69,6 +71,12 @@ public class VidyaViewerController {
 	public String searchGames(
 			@RequestParam(value = "searchTerm", required = false, defaultValue = "") String searchTerm) {
 		String enchancedTerm = searchTerm + "";
+		try {
+			List<GameDTO> fetchgames = serviceDAO.fetchGamesService(enchancedTerm);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		return ("index");
 	}
 

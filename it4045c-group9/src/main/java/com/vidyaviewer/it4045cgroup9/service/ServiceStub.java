@@ -26,7 +26,7 @@ public class ServiceStub implements IServiceDAO {
 	}
 
 	@Override
-	public List<GameDTO> fetchGames(String string) throws Exception {
+	public List<GameDTO> fetchGamesService(String string) throws Exception {
 		// TODO Auto-generated method stub
 		throw new UnsupportedOperationException("Unimplemented method 'fetchGames'");
 	}

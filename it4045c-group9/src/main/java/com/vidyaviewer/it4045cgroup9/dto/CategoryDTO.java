@@ -1,33 +1,35 @@
 package com.vidyaviewer.it4045cgroup9.dto;
 
-import java.util.List;
-
 public class CategoryDTO {
 
 	private int categoryID;
-	private String categoryTitle; 
-	private List<GameDTO> listOfGames;
-	//---------------------------------	
+	private String title;
+
+	public CategoryDTO() {
+	}
+
+	// This constructor used to set the basic data for a category, List of games
+	// should be pulled from the DB
+	public CategoryDTO(int categoryID, String title) {
+
+	}
+
+	// ---------------------------------
 	public int getCategoryID() {
 		return categoryID;
 	}
+
 	public void setCategoryID(int categoryID) {
 		this.categoryID = categoryID;
 	}
-	//---------------------------------	
-	public String getCategoryTitle() {
-		return categoryTitle;
+
+	// ---------------------------------
+	public String getTitle() {
+		return title;
 	}
-	public void setCategoryTitle(String categoryTitle) {
-		this.categoryTitle = categoryTitle;
+
+	public void setTitle(String title) {
+		this.title = title;
 	}
-	//---------------------------------	
-	public List<GameDTO> getListOfGames() {
-		return listOfGames;
-	}
-	public void setListOfGames(List<GameDTO> listOfGames) {
-		this.listOfGames = listOfGames;
-	}
-	//---------------------------------	
-	
+
 }

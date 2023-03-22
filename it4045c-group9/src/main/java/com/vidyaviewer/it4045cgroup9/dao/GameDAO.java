@@ -10,14 +10,14 @@ import org.springframework.stereotype.Component;
 
 import com.vidyaviewer.it4045cgroup9.dto.GameDTO;
 
-@Component
+//@Component
 public class GameDAO implements IGameDAO {
 
 	@Autowired
 	NetworkDAO networkDAO;
 
 	@Override
-	public List<GameDTO> fetch(String searchfilter) throws Exception {
+	public List<GameDTO> fetchGames(String searchfilter) throws Exception {
 		List<GameDTO> allGames = new ArrayList<GameDTO>();
 
 		// TODO REPLACE THE BASEURL WITH THE CONNECTIONSTRING FOR THE JSON DATA
@@ -35,7 +35,7 @@ public class GameDAO implements IGameDAO {
 			game.setGameID(jsonGames.getInt("id"));
 			game.setTitle(jsonGames.getString("title"));
 			game.setCriticScore(jsonGames.getDouble("criticScore"));
-			
+
 			allGames.add(game);
 		}
 

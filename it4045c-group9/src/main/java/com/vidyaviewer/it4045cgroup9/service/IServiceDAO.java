@@ -10,6 +10,6 @@ public interface IServiceDAO {
 
 	void save(GameDTO gameDTO);
 
-	List<GameDTO> fetchGames(String string) throws Exception;
+	List<GameDTO> fetchGamesService(String string) throws Exception;
 
 }
