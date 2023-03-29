@@ -1,7 +1,21 @@
 package com.vidyaviewer.it4045cgroup9.dao;
 
-//implementation should be done here. Uncomment the following line to wire everything up
-//@Component
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+
+import com.vidyaviewer.it4045cgroup9.dto.UserDTO;
+
+@Component
 public class UserDAO implements IUserDAO {
+	
+	@Autowired
+	UserRepository userRepository;
+	
+	@Override
+	public boolean save(UserDTO usersDTO) throws Exception {
+		// TODO Auto-generated method stub
+		userRepository.save(usersDTO);
+		return false;
+	}
 
 }

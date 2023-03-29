@@ -2,8 +2,17 @@ package com.vidyaviewer.it4045cgroup9.dto;
 
 import java.util.List;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+
+
+@Entity
 public class UserDTO {
 
+	@Id
+	@GeneratedValue(strategy=GenerationType.AUTO)
 	private int userID;
 	private String userName;
 	private String email;
