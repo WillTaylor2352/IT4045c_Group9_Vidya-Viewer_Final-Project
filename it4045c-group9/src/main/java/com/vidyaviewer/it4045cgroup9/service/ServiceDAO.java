@@ -13,7 +13,7 @@ public class ServiceDAO implements IServiceDAO {
 
 	@Autowired
 	IGameDAO gameDAO;
-
+	
 	@Override
 	public GameDTO fetchByID(int id) {
 		// TODO Auto-generated method stub
@@ -21,14 +21,24 @@ public class ServiceDAO implements IServiceDAO {
 	}
 
 	@Override
-	public void save(GameDTO gameDTO) {
+	public void save(GameDTO gameDTO)throws Exception {
 		// TODO Auto-generated method stub
-		throw new UnsupportedOperationException("Unimplemented method 'save'");
+		gameDAO.save(gameDTO);
 	}
 
 	@Override
 	public List<GameDTO> fetchGamesService(String string) throws Exception {
-		return gameDAO.fetchGames("string");
+		// TODO Auto-generated method stub
+		return null;
 	}
+	
+	/*public GameDTO findGameById( Iterable<Integer> id ) {
+		return gameDAO.findGamesById(id);
+	}*/
+	
+	/*@Override
+	public List<GameDTO> fetchGamesService(String string) throws Exception {
+		return gameDAO.findGamesById("string");
+	}*/
 
 }

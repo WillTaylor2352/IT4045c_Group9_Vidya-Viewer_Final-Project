@@ -20,11 +20,23 @@ public class GameStub implements IGameDAO {
 	public List<GameDTO> fetchGames(String searchfilter) throws Exception {
 		List<GameDTO> allGames = new ArrayList<GameDTO>();
 
-		allGames.add(new GameDTO(1, "Zelda", 5.0));
-		allGames.add(new GameDTO(2, "Forza", 4.3));
-		allGames.add(new GameDTO(3, "Horizon Zero Dawn", 4.7));
-		allGames.add(new GameDTO(4, "Jerry's Game", 1.1));
+		allGames.add(new GameDTO(1, "Zelda", "5.0"));
+		allGames.add(new GameDTO(2, "Forza", "4.3"));
+		allGames.add(new GameDTO(3, "Horizon Zero Dawn", "4.7"));
+		allGames.add(new GameDTO(4, "Jerry's Game", "1.1"));
 
 		return allGames;
+	}
+
+	@Override
+	public List<GameDTO> findGamesById(Iterable<Integer> id) throws Exception {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public boolean save(GameDTO gameDTO) throws Exception {
+		// TODO Auto-generated method stub
+		return false;
 	}
 }
