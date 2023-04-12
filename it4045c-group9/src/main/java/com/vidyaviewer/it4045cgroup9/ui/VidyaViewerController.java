@@ -13,6 +13,9 @@ import org.springframework.web.bind.annotation.RequestParam;
 import com.vidyaviewer.it4045cgroup9.dto.GameDTO;
 import com.vidyaviewer.it4045cgroup9.service.IServiceDAO;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 @Controller
 public class VidyaViewerController {
 	/*
@@ -32,12 +35,25 @@ public class VidyaViewerController {
 	 * Post shareCategory
 	 * Post addMyRating
 	 */
+	
+	Logger log = LoggerFactory.getLogger(this.getClass());
+	
 	@Autowired
 	private IServiceDAO serviceDAO;
 
 	@RequestMapping(value = "saveGameData")
 	public String saveGameData(GameDTO gameDTO) {
-		gameDTO.setGameID(2);
+		gameDTO.setGameID(1);
+		gameDTO.setTitle("Overwatch 2");
+		gameDTO.setCriticScore("3.5");
+		try {
+			serviceDAO.save(gameDTO);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			log.error("error saving game", e);
+			e.printStackTrace();
+			return "error";
+		}
 		return "test";
 	}
 

@@ -8,7 +8,7 @@ public interface IServiceDAO {
 
 	GameDTO fetchByID(int id);
 
-	void save(GameDTO gameDTO);
+	void save(GameDTO gameDTO) throws Exception;
 
 	List<GameDTO> fetchGamesService(String string) throws Exception;
 
