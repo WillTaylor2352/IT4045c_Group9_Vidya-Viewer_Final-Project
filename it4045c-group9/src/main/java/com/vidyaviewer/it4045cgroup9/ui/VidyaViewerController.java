@@ -34,7 +34,6 @@ public class VidyaViewerController {
 			log.info("saving gameDTO to Database: " + gameDTO.toString());
 			serviceDAO.save(gameDTO);
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
 			log.error("error saving game", e);
 			e.printStackTrace();
 			return "error";
@@ -80,7 +79,6 @@ public class VidyaViewerController {
 		try {
 			List<GameDTO> fetchgames = serviceDAO.fetchGamesService(enchancedTerm);
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		return ("index");
