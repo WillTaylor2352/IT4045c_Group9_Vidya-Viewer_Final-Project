@@ -9,7 +9,6 @@ import org.springframework.stereotype.Component;
 
 import com.vidyaviewer.it4045cgroup9.dao.IGameDAO;
 import com.vidyaviewer.it4045cgroup9.dto.GameDTO;
-import com.vidyaviewer.it4045cgroup9.ui.VidyaViewerController;
 
 @Component
 public class ServiceDAO implements IServiceDAO {

@@ -3,7 +3,6 @@ package com.vidyaviewer.it4045cgroup9.ui;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -30,39 +29,38 @@ public class VidyaViewerController {
 
 	@GetMapping("/")
 	public String readindex() {
-		logger.debug("entering the index page (game view)");
 		logger.info("entering the index page (game view)");
 		return "index";
 	}
 
 	@GetMapping("/games_add")
 	public String addGames(Model model) {
-		logger.debug("entering game addition endpoint");
+		logger.info("entering game addition endpoint");
 		model.addAttribute("gameDTO", new GameDTO());
 		return "games_add";
 	}
 
 	@GetMapping("/games_update")
 	public String updateGames() {
-		logger.debug("entering game update endpoint");
+		logger.info("entering game update endpoint");
 		return "games_update";
 	}
 
 	@GetMapping("/games_remove")
 	public String removeGames() {
-		logger.debug("entering remove game endpoint");
+		logger.info("entering remove game endpoint");
 		return "games_remove";
 	}
 
 	@GetMapping("/hellothere")
 	public String helloThere() {
-		logger.debug("A fine addition to my collection! (entering hellothere endpoint)");
+		logger.info("A fine addition to my collection! (entering hellothere endpoint)");
 		return "hellothere";
 	}
 
 	@RequestMapping(value = "/test", method = RequestMethod.GET)
 	public String read(Model model) {
-		logger.debug("entering the test endpoint");
+		logger.info("entering the test endpoint");
 		model.addAttribute("gameDTO", new GameDTO());
 		return "test";
 	}
@@ -71,7 +69,7 @@ public class VidyaViewerController {
 
 	@RequestMapping(value = "/saveGameData")
 	public String saveGameData(GameDTO gameDTO) {
-		logger.debug("entering the savegamedata endpoint");
+		logger.info("entering the savegamedata endpoint");
 		try {
 			logger.info("saving gameDTO to Database: " + gameDTO.toString());
 			serviceDAO.save(gameDTO);
@@ -86,7 +84,7 @@ public class VidyaViewerController {
 	@RequestMapping(value = "/searchGames", method = RequestMethod.GET)
 	public String searchGames(
 			@RequestParam(value = "searchTerm", required = false, defaultValue = "") String searchTerm) {
-		logger.debug("entering searchGames endpoint");
+		logger.info("entering searchGames endpoint");
 		String enchancedTerm = searchTerm + "";
 		try {
 			List<GameDTO> fetchgames = serviceDAO.fetchGamesService(enchancedTerm);
