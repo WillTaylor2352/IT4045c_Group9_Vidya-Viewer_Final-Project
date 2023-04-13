@@ -11,10 +11,21 @@
 <body >
 	<div th:replace="~{fragments/navigation :: site-navbar}"></div>
 	<!--this div controlls the central width of the screen and should be included on all pages (development is being optimized for desktops)-->
-	<div style="width: 70%; min-width: 880px;" class="m-auto mt-4 ">
+	<div style="width: 70%; min-width: 880px;" class="m-auto mt-4">
 	<!--		NOTE: all code above this note, as well as this note itself, should be reused in all HTML files	-->
 		
+	<div class="container">
+		<div class="row text-center">
+			<div class="col h1">
+				You have reached this page in error
+			</div>
+		</div>
+		<div class="row text-center">
+			<p class="col">Please retry your request <span style="text-decoration: underline; white-space: nowrap;">or</span> 
+				please return to the <a href="/">home page</a>.</p>
+		</div>
 
+	</div>
 
 
 

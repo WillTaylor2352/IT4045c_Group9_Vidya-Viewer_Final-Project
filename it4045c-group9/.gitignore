@@ -26,4 +26,3 @@ HELP.md
 ### VS Code ###
 .vscode/
 /.metadata/*
-/target/

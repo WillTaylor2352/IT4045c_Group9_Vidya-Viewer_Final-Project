@@ -18,35 +18,20 @@ import org.slf4j.LoggerFactory;
 
 @Controller
 public class VidyaViewerController {
-	/*
-	 * TODO - IMPLEMENT METHODS FOR THE FOLLOWING REQUESTS:
-	 * 
-	 * Get allRatings
-	 * Get myRatings
-	 * Get allGames
-	 * Get allCategories
-	 * Get filteredCategories
-	 * Get userAccount
-	 * Get myFriends
-	 * Get errorPage
-	 * Post addGame
-	 * Post addMyCategory
-	 * Post shareGame
-	 * Post shareCategory
-	 * Post addMyRating
-	 */
-	
+
 	Logger log = LoggerFactory.getLogger(this.getClass());
-	
+
 	@Autowired
 	private IServiceDAO serviceDAO;
 
-	@RequestMapping(value = "saveGameData")
+	@RequestMapping(value = "/saveGameData")
 	public String saveGameData(GameDTO gameDTO) {
+		// CURRENTLY HARDCODED, ENSURE PASSING IN VARIABLES FROM TEXT FIELDS
 		gameDTO.setGameID(1);
 		gameDTO.setTitle("Overwatch 2");
 		gameDTO.setCriticScore("3.5");
 		try {
+			log.info("saving gameDTO to Database: " + gameDTO.toString());
 			serviceDAO.save(gameDTO);
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
@@ -62,19 +47,24 @@ public class VidyaViewerController {
 		return "index";
 	}
 
-	@GetMapping("/games")
-	public String loadGames() {
-		return "games";
+	@GetMapping("/games_add")
+	public String addGames() {
+		return "games_add";
+	}
+
+	@GetMapping("/games_update")
+	public String updateGames() {
+		return "games_update";
+	}
+
+	@GetMapping("/games_remove")
+	public String removeGames() {
+		return "games_remove";
 	}
 
 	@GetMapping("/hellothere")
 	public String helloThere() {
 		return "hellothere";
-	}
-
-	@GetMapping("/profile")
-	public String showProfile() {
-		return "profile";
 	}
 
 	@RequestMapping(value = "/test", method = RequestMethod.GET)

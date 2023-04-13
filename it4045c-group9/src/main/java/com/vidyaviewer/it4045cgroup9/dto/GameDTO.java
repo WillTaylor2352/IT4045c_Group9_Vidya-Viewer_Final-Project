@@ -7,9 +7,9 @@ import jakarta.persistence.Id;
 
 @Entity
 public class GameDTO {
-	
+
 	@Id
-	@GeneratedValue(strategy=GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int gameID;
 	private String title;
 	private String criticScore;
@@ -37,20 +37,20 @@ public class GameDTO {
 		return title;
 	}
 
-	public void setTitle(String title) {
-		this.title = title;
+	public void setTitle(String passedInTitle) {
+		this.title = passedInTitle;
 	}
 
 	public String getCriticScore() {
 		return criticScore;
 	}
 
-	public void setCriticScore(String d) {
-		this.criticScore = d;
+	public void setCriticScore(String passedInCriticScore) {
+		this.criticScore = passedInCriticScore;
 	}
 
 	@Override
 	public String toString() {
-		return "Title: " + this.title;
+		return "Game ID: " + this.gameID + " | Title: " + this.title + " | Critic Score: " + this.criticScore;
 	}
 }
