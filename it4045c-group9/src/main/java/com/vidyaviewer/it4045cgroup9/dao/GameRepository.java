@@ -6,6 +6,4 @@ import com.vidyaviewer.it4045cgroup9.dto.GameDTO;
 
 public interface GameRepository extends CrudRepository<GameDTO, Integer> {
 
-	
-	
 }

@@ -14,6 +14,14 @@ public class GameDAO implements IGameDAO {
 	@Autowired
 	GameRepository gameRepository;
 
+	/**
+	 * Saves a GameDTO into the database
+	 * 
+	 * @param gameDTO - the game object to save in the database
+	 * @return boolean
+	 * @throws Exception - occurs when there is an error writing an object to the
+	 *                   database
+	 */
 	@Override
 	public boolean save(GameDTO gameDTO) throws Exception {
 		gameRepository.save(gameDTO);
