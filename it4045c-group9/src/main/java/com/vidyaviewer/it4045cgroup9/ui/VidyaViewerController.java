@@ -36,8 +36,9 @@ public class VidyaViewerController {
 	}
 
 	@GetMapping("/games_add")
-	public String addGames() {
+	public String addGames(Model model) {
 		logger.debug("entering game addition endpoint");
+		model.addAttribute("gameDTO", new GameDTO());
 		return "games_add";
 	}
 
@@ -71,9 +72,6 @@ public class VidyaViewerController {
 	@RequestMapping(value = "/saveGameData")
 	public String saveGameData(GameDTO gameDTO) {
 		logger.debug("entering the savegamedata endpoint");
-		// CURRENTLY HARDCODED, ENSURE PASSING IN VARIABLES FROM TEXT FIELDS
-		gameDTO.setTitle("Overwatch 2");
-		gameDTO.setCriticScore("3.5");
 		try {
 			logger.info("saving gameDTO to Database: " + gameDTO.toString());
 			serviceDAO.save(gameDTO);
@@ -82,7 +80,7 @@ public class VidyaViewerController {
 			e.printStackTrace();
 			return "error";
 		}
-		return "test";
+		return "games_add";
 	}
 
 	@RequestMapping(value = "/searchGames", method = RequestMethod.GET)
