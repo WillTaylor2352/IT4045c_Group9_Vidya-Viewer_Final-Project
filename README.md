@@ -3,7 +3,7 @@
 
 ## Group 9  - Vidya Viewer  
 
-### Group Members: Couri Wilson, Blake Schriewer, Zion Ivery, William Taylor 
+### Group Members: Blake Schriewer, William Taylor 
 
 ## Introduction 
 
@@ -105,11 +105,9 @@ https://trello.com/b/KYVkLC2x/it4045c-group-9-vidya-viewer
 
 Product owner: William Taylor 
 
-UI Expert:  Couri Wilson
+UI Expert:  William Taylor
 
 Database Expert: Blake Schriewer 
-
-Additional Support:  Zion Ivery
 
 ## Github Link:  
 
