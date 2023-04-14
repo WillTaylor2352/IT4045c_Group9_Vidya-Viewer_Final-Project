@@ -17,7 +17,7 @@ public class GameStub implements IGameDAO {
 	NetworkDAO networkDAO;
 
 	@Override
-	public List<GameDTO> fetchGames(String searchfilter) throws Exception {
+	public Iterable<GameDTO> fetchGames() throws Exception {
 		List<GameDTO> allGames = new ArrayList<GameDTO>();
 
 		allGames.add(new GameDTO(1, "Zelda", "5.0"));
@@ -39,4 +39,11 @@ public class GameStub implements IGameDAO {
 		// TODO Auto-generated method stub
 		return false;
 	}
+
+	@Override
+	public boolean deleteById(GameDTO gameDTO) {
+		// TODO Auto-generated method stub
+		throw new UnsupportedOperationException("Unimplemented method 'deleteById'");
+	}
+
 }

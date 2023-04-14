@@ -28,13 +28,31 @@ public class GameDAO implements IGameDAO {
 		return false;
 	}
 
+	/**
+	 * Deletes a GameDTO from the database by ID
+	 * 
+	 * @param gameDTO - the game object to remove from the database
+	 * @return boolean
+	 */
 	@Override
-	public List<GameDTO> findGamesById(Iterable<Integer> id) throws Exception {
-		return null;
+	public boolean deleteById(GameDTO gameDTO) {
+		gameRepository.deleteById(gameDTO.getGameID());
+		return false;
+	}
+
+	/**
+	 * Returns Iterable of GameDTO objects.
+	 * 
+	 * @return Iterable<GameDTO>
+	 * @throws Exception
+	 */
+	@Override
+	public Iterable<GameDTO> fetchGames() throws Exception {
+		return gameRepository.findAll();
 	}
 
 	@Override
-	public List<GameDTO> fetchGames(String searchfilter) throws Exception {
+	public List<GameDTO> findGamesById(Iterable<Integer> id) throws Exception {
 		return null;
 	}
 

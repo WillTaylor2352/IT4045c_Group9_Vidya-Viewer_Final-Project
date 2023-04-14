@@ -31,4 +31,16 @@ public class ServiceStub implements IServiceDAO {
 		throw new UnsupportedOperationException("Unimplemented method 'fetchGames'");
 	}
 
+	@Override
+	public void deleteById(GameDTO gameDTO) throws Exception {
+		// TODO Auto-generated method stub
+		throw new UnsupportedOperationException("Unimplemented method 'deleteById'");
+	}
+
+	@Override
+	public Iterable<GameDTO> fetchAllGames() throws Exception {
+		// TODO Auto-generated method stub
+		throw new UnsupportedOperationException("Unimplemented method 'fetchAllGames'");
+	}
+
 }

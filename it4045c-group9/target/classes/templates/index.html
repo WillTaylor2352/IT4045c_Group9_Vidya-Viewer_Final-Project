@@ -12,10 +12,45 @@
 	<!--this div controlls the central width of the screen and should be included on all pages (development is being optimized for desktops)-->
 	<div style="width: 80%; min-width: 880px;" class="m-auto mt-4 ">
 	<!--		NOTE: all code above this note, as well as this note itself, should be reused in all HTML files	-->
-	<p class="fw-bolder fs-2">
-		Games: 
-	</p>
-	<!--CATEGORY CARD - list all category items on load-->
+	<div class="d-flex justify-content-between">
+		<p class="fw-bolder fs-2  align-self-center m-auto ms-0">
+			Games: 
+		</p>
+
+			<form th:action="@{/loadGames}" class=" align-self-center ">
+				<button class="btn btn-outline-light" type="submit">Refresh Games list</button>
+			</form>
+
+	</div>
+
+<table class="table">
+	<thead>
+		<tr>
+			<th scope="col">GameID</th>
+			<th scope="col">Title</th>
+			<th scope="col">Rating</th>
+			<th scope="col"></th>
+		</tr>
+	</thead>
+	<tbody>
+		<div class="list-group" th:each="game : ${allgames}">
+			<tr>
+				<th scope="row" th:text="${game.gameID}"></th>
+				<td th:text="${game.title}"></td>
+				<td th:text="${game.criticScore}"></td>
+				<!--<td>
+					TODO 
+					<form class="form-group" th:action="@{/gameControls}" >
+						<button class="btn-primary btn" name="action" value="edit" type="submit">Edit</button>
+						<button class="btn-primary btn" name="action" value="delete" type="submit">Delete</button>
+					</form>
+				</td>-->
+			</tr>
+		</div>
+	</tbody>
+</table>
+<!--
+	<!--CATEGORY CARD - list all category items on load--
 	<div class="d-flex ">
 		<div class="col-4 me-2">
 			<div class="card ">
@@ -29,7 +64,7 @@
 				</div>
 			</div>
 		</div>
-		<!--GAMES CARD - do not list items until a category has been chosen-->
+		<!--GAMES CARD - do not list items until a category has been chosen--
 		<div class="col-4 me-2 ms-2">
 			<div class="card ">
 				<div class="card-body">
@@ -42,7 +77,7 @@
 				</div>
 			</div>
 		</div>
-		<!--DETAIL CARD - do not list details (GAMEDTO) until a game has been selected-->
+		<!--DETAIL CARD - do not list details (GAMEDTO) until a game has been selected--
 		<div class="col-4 ms-2">
 			<div class="card " >
 				<div class="card-body">
@@ -56,7 +91,7 @@
 			</div>
 		</div>
 	</div>	
-	
+-->
 	<!-- Welcome to my simple index page.
 		<br/>
 		please navigate <a href="/start">here</a> or <a href="/start?loyalty=silver">here</a> to see models being passed with data.

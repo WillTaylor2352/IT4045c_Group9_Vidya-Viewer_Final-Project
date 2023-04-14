@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.ModelAndView;
 
 import com.vidyaviewer.it4045cgroup9.dto.GameDTO;
 import com.vidyaviewer.it4045cgroup9.service.IServiceDAO;
@@ -28,8 +29,9 @@ public class VidyaViewerController {
 	// --------------------- HTML RETURN ENDPOINTS ---------------------
 
 	@GetMapping("/")
-	public String readindex() {
+	public String readindex(Model model) {
 		logger.info("entering the index page (game view)");
+		model.addAttribute("gameDTO", new GameDTO());
 		return "index";
 	}
 
@@ -41,8 +43,9 @@ public class VidyaViewerController {
 	}
 
 	@GetMapping("/games_update")
-	public String updateGames() {
+	public String updateGames(Model model) {
 		logger.info("entering game update endpoint");
+		model.addAttribute("gameDTO", new GameDTO());
 		return "games_update";
 	}
 
@@ -67,18 +70,93 @@ public class VidyaViewerController {
 
 	// --------------------- IMPLEMENTATION ENDPOINTS ---------------------
 
-	@RequestMapping(value = "/saveGameData")
-	public String saveGameData(GameDTO gameDTO) {
-		logger.info("entering the savegamedata endpoint");
+	/**
+	 * SaveGameData method - Local method used to perform crud save operation
+	 * 
+	 * @param gameDTO - the game dto to write to the database
+	 * @return boolean - returns false if operation fails, returns true if
+	 *         successful
+	 */
+	public boolean saveGameData(GameDTO gameDTO) {
 		try {
-			logger.info("saving gameDTO to Database: " + gameDTO.toString());
 			serviceDAO.save(gameDTO);
+			logger.info("saved gameDTO to Database: " + gameDTO.toString());
+		} catch (Exception e) {
+			logger.error("error saving game", e);
+			e.printStackTrace();
+			return false;
+		}
+		return true;
+	}
+
+	/**
+	 * Adds a game to the database
+	 * 
+	 * @param gameDTO - the gameDTO to add to the database
+	 * @return String
+	 */
+	@RequestMapping(value = "/addGameData")
+	public String addGameData(GameDTO gameDTO) {
+		logger.info("entering the addgamedata endpoint");
+		if (saveGameData(gameDTO))
+			return "games_add";
+		else
+			return "error";
+	}
+
+	/**
+	 * Updates a selected game by ID
+	 * 
+	 * @param gameDTO - the game object passed in by thymeleaf
+	 * @param gameID  - the gameID to be updated
+	 * @return String - the view returned after process completes
+	 */
+	@RequestMapping(value = "/updateGameData", params = "action=update")
+	public String updateGameData(GameDTO gameDTO) {
+		logger.info("entering the updategamedata endpoint");
+		if (saveGameData(gameDTO))
+			return "games_update";
+		else
+			return "error";
+	}
+
+	/**
+	 * Cancels the requested update to game data and returns user to homepage
+	 * 
+	 * @return String - the view being returned to the user
+	 */
+	@RequestMapping(value = "/updateGameData", params = "action=cancel")
+	public String cancelUpdateGameData(GameDTO gameDTO) {
+		return "index";
+	}
+
+	// TODO SET UP TO PASS GAMEDTO TO UPDATE GAME DATA. FIGURE OUT HOW TO DISABLE
+	// TEXT FIELD ON GAMEID
+	@RequestMapping(value = "/gameControls", params = "action=edit")
+	public String editGameData(GameDTO gameDTO) {
+		return "updateGameData";
+	}
+
+	// TODO SET UP TO PASS GAMEDTO TO UPDATE GAME DATA. FIGURE OUT HOW TO DISABLE
+	// TEXT FIELD ON GAMEID
+	@RequestMapping(value = "/gameControls", params = "action=delete")
+	public String deleteGameData(GameDTO gameDTO) {
+		return "index";
+	}
+
+	@RequestMapping(value = "/removeGameData")
+	public String removeGameData(GameDTO gameDTO) {
+		logger.info("entering the updategamedata endpoint");
+		try {
+			serviceDAO.deleteById(gameDTO);
+			logger.info("saved gameDTO to Database: " + gameDTO.toString());
 		} catch (Exception e) {
 			logger.error("error saving game", e);
 			e.printStackTrace();
 			return "error";
 		}
-		return "games_add";
+		return "games_remove";
+
 	}
 
 	@RequestMapping(value = "/searchGames", method = RequestMethod.GET)
@@ -92,6 +170,22 @@ public class VidyaViewerController {
 			e.printStackTrace();
 		}
 		return ("index");
+	}
+
+	@RequestMapping(value = "/loadGames", method = RequestMethod.GET)
+	public ModelAndView loadgames() {
+		ModelAndView modelAndView = new ModelAndView();
+		try {
+			Iterable<GameDTO> allgames = serviceDAO.fetchAllGames();
+			logger.info("games fetched sucessfully!");
+			modelAndView.setViewName("index");
+			modelAndView.addObject("allgames", allgames);
+		} catch (Exception e) {
+			e.printStackTrace();
+			logger.error("failed to fetch games", e);
+			modelAndView.setViewName("error");
+		}
+		return modelAndView;
 	}
 
 }

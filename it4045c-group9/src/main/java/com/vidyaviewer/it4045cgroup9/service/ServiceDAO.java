@@ -30,22 +30,20 @@ public class ServiceDAO implements IServiceDAO {
 	}
 
 	@Override
+	public void deleteById(GameDTO gameDTO) throws Exception {
+		logger.info("entering delete method in ServiceDAO");
+		gameDAO.deleteById(gameDTO);
+	}
+
+	@Override
+	public Iterable<GameDTO> fetchAllGames() throws Exception {
+		return gameDAO.fetchGames();
+	}
+
+	@Override
 	public List<GameDTO> fetchGamesService(String string) throws Exception {
 		// TODO Auto-generated method stub
 		return null;
 	}
-
-	/*
-	 * public GameDTO findGameById( Iterable<Integer> id ) {
-	 * return gameDAO.findGamesById(id);
-	 * }
-	 */
-
-	/*
-	 * @Override
-	 * public List<GameDTO> fetchGamesService(String string) throws Exception {
-	 * return gameDAO.findGamesById("string");
-	 * }
-	 */
 
 }
