@@ -18,7 +18,7 @@
 		</h1>
 		<p th:text="${gameDTO}"></p>
 
-	<form class="form-group" action="#" th:action="@{/saveGameData}" th:object="${gameDTO}" method="GET">
+	<form class="form-group" action="#" th:action="@{/addGameData}" th:object="${gameDTO}" method="GET">
 		
 		Title: <input class="form-control" type="text" name="title" th:field="*{title}"/><br/>
 		Critic Score: <input class="form-control" type="text" name="criticScore" th:field="*{criticScore}"/><br/>

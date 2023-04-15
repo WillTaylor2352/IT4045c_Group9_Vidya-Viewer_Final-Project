@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -14,6 +15,7 @@ import org.springframework.web.servlet.ModelAndView;
 import com.vidyaviewer.it4045cgroup9.dto.GameDTO;
 import com.vidyaviewer.it4045cgroup9.service.IServiceDAO;
 
+import org.hibernate.boot.model.IdGeneratorStrategyInterpreter.GeneratorNameDeterminationContext;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -132,17 +134,28 @@ public class VidyaViewerController {
 
 	// TODO SET UP TO PASS GAMEDTO TO UPDATE GAME DATA. FIGURE OUT HOW TO DISABLE
 	// TEXT FIELD ON GAMEID
-	@RequestMapping(value = "/gameControls", params = "action=edit")
-	public String editGameData(GameDTO gameDTO) {
-		return "updateGameData";
+	@RequestMapping(value = "/gameControls")
+	public ModelAndView editGameData(GameDTO gameDTO) {
+		ModelAndView modelAndView = new ModelAndView();
+		try{
+			modelAndView.addObject("gameDTO", gameDTO);
+			modelAndView.setViewName("games_update");
+			logger.info("game targeted sucessfully switching to update page");
+		}
+		catch(Exception e){
+			e.printStackTrace();
+			logger.error("failed to target game correctly", e);
+			modelAndView.setViewName("error");
+		}
+		return modelAndView;
 	}
 
-	// TODO SET UP TO PASS GAMEDTO TO UPDATE GAME DATA. FIGURE OUT HOW TO DISABLE
-	// TEXT FIELD ON GAMEID
-	@RequestMapping(value = "/gameControls", params = "action=delete")
-	public String deleteGameData(GameDTO gameDTO) {
-		return "index";
-	}
+	// // TODO SET UP TO PASS GAMEDTO TO UPDATE GAME DATA. FIGURE OUT HOW TO DISABLE
+	// // TEXT FIELD ON GAMEID
+	// @RequestMapping(value = "/gameControls", params = "action=delete")
+	// public String deleteGameData(GameDTO gameDTO) {
+	// 	return "index";
+	// }
 
 	@RequestMapping(value = "/removeGameData")
 	public String removeGameData(GameDTO gameDTO) {
@@ -173,7 +186,8 @@ public class VidyaViewerController {
 	}
 
 	@RequestMapping(value = "/loadGames", method = RequestMethod.GET)
-	public ModelAndView loadgames() {
+	public ModelAndView loadgames(Model model) {
+		model.addAttribute("gameDTO", new GameDTO());
 		ModelAndView modelAndView = new ModelAndView();
 		try {
 			Iterable<GameDTO> allgames = serviceDAO.fetchAllGames();

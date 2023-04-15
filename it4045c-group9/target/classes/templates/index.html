@@ -33,73 +33,24 @@
 		</tr>
 	</thead>
 	<tbody>
-		<div class="list-group" th:each="game : ${allgames}">
+		<div class="list-group" th:each="game : ${allgames}" >
 			<tr>
 				<th scope="row" th:text="${game.gameID}"></th>
 				<td th:text="${game.title}"></td>
 				<td th:text="${game.criticScore}"></td>
-				<!--<td>
-					TODO 
-					<form class="form-group" th:action="@{/gameControls}" >
-						<button class="btn-primary btn" name="action" value="edit" type="submit">Edit</button>
-						<button class="btn-primary btn" name="action" value="delete" type="submit">Delete</button>
-					</form>
-				</td>-->
+				<td>
+					<form th:object="${gameDTO}" th:action="@{/gameControls}">
+						<input type="hidden" name="gameID"  th:value="${game.gameID}"/>
+						<!-- <input type="hidden" name="gameID" th:field="*{gameID}" th:value="${game.gameID}"/> -->
+						<input type="hidden" name="title" th:title="*{title}" th:value="${game.title}"/>
+						<input type="hidden" name="criticScore" th:criticScore="*{criticScore}" th:value="${game.criticScore}"/>
+						<button class=" btn btn-primary" type="submit" >Edit</button>
+					</form>		
+				</td>
 			</tr>
 		</div>
 	</tbody>
 </table>
-<!--
-	<!--CATEGORY CARD - list all category items on load--
-	<div class="d-flex ">
-		<div class="col-4 me-2">
-			<div class="card ">
-				<div class="card-body">
-					<h3 class="card-title">Category</h3>
-					<ul class="list-group list-group-flush">
-						<li class="list-group-item">Action</li>
-						<li class="list-group-item">Adventure</li>
-						<li class="list-group-item">RPG</li>
-					</ul>
-				</div>
-			</div>
-		</div>
-		<!--GAMES CARD - do not list items until a category has been chosen--
-		<div class="col-4 me-2 ms-2">
-			<div class="card ">
-				<div class="card-body">
-					<h3 class="card-title">Games</h3>
-					<ul class="list-group list-group-flush">
-						<li class="list-group-item"><a href="https://youtube.com">Action</a></li>
-						<li class="list-group-item">Adventure</li>
-						<li class="list-group-item">RPG</li>
-					</ul>
-				</div>
-			</div>
-		</div>
-		<!--DETAIL CARD - do not list details (GAMEDTO) until a game has been selected--
-		<div class="col-4 ms-2">
-			<div class="card " >
-				<div class="card-body">
-					<h3 class="card-title">Detail</h3>
-					<ul class="list-group list-group-flush">
-						<li class="list-group-item">Action</li>
-						<li class="list-group-item">Adventure</li>
-						<li class="list-group-item">RPG</li>
-					</ul>
-				</div>
-			</div>
-		</div>
-	</div>	
--->
-	<!-- Welcome to my simple index page.
-		<br/>
-		please navigate <a href="/start">here</a> or <a href="/start?loyalty=silver">here</a> to see models being passed with data.
-		<br/>
-		<h1><a href="/hellothere">Hello There..</a></h1> -->
-		
-
-	<!--		NOTE: everything after this point should be loaded on all pages. 	-->
 </div>
 </body>
 </html>
