@@ -10,7 +10,7 @@
 <body >
 	<div th:replace="~{fragments/navigation :: site-navbar}"></div>
 	<!--this div controlls the central width of the screen and should be included on all pages (development is being optimized for desktops)-->
-	<div style="width: 80%; min-width: 880px;" class="m-auto mt-4 ">
+	<div style="width: 50%; min-width: 500px;" class="m-auto mt-4 ">
 	<!--		NOTE: all code above this note, as well as this note itself, should be reused in all HTML files	-->
 	<div class="d-flex justify-content-between">
 		<p class="fw-bolder fs-2  align-self-center m-auto ms-0">
@@ -38,13 +38,13 @@
 				<th scope="row" th:text="${game.gameID}"></th>
 				<td th:text="${game.title}"></td>
 				<td th:text="${game.criticScore}"></td>
-				<td>
-					<form th:object="${gameDTO}" th:action="@{/gameControls}">
+				<td style="max-width: 130px;">
+					<form th:object="${gameDTO}" th:action="@{/gameControls}" style="float: right;">
 						<input type="hidden" name="gameID"  th:value="${game.gameID}"/>
 						<!-- <input type="hidden" name="gameID" th:field="*{gameID}" th:value="${game.gameID}"/> -->
 						<input type="hidden" name="title" th:title="*{title}" th:value="${game.title}"/>
 						<input type="hidden" name="criticScore" th:criticScore="*{criticScore}" th:value="${game.criticScore}"/>
-						<button class=" btn btn-primary" type="submit" >Edit</button>
+						<button class=" btn btn-primary" type="submit" value="edit">Edit</button>
 					</form>		
 				</td>
 			</tr>

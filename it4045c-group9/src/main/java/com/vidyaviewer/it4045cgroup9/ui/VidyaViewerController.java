@@ -1,21 +1,16 @@
 package com.vidyaviewer.it4045cgroup9.ui;
 
-import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.vidyaviewer.it4045cgroup9.dto.GameDTO;
 import com.vidyaviewer.it4045cgroup9.service.IServiceDAO;
 
-import org.hibernate.boot.model.IdGeneratorStrategyInterpreter.GeneratorNameDeterminationContext;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -101,10 +96,19 @@ public class VidyaViewerController {
 	public String addGameData(GameDTO gameDTO) {
 		logger.info("entering the addgamedata endpoint");
 		if (saveGameData(gameDTO))
-			return "games_add";
+			return "index";
 		else
 			return "error";
 	}
+	/**
+	 * Cancels the requested update to game data and returns user to homepage
+	 * 
+	 * @return String - the view being returned to the user
+	 */
+	// @RequestMapping(value = "/addGameData", params = "action=cancel")
+	// public String cancelAddGameData(GameDTO gameDTO) {
+	// 	return "index";
+	// }
 
 	/**
 	 * Updates a selected game by ID
@@ -117,7 +121,7 @@ public class VidyaViewerController {
 	public String updateGameData(GameDTO gameDTO) {
 		logger.info("entering the updategamedata endpoint");
 		if (saveGameData(gameDTO))
-			return "games_update";
+			return "index";
 		else
 			return "error";
 	}
@@ -150,13 +154,6 @@ public class VidyaViewerController {
 		return modelAndView;
 	}
 
-	// // TODO SET UP TO PASS GAMEDTO TO UPDATE GAME DATA. FIGURE OUT HOW TO DISABLE
-	// // TEXT FIELD ON GAMEID
-	// @RequestMapping(value = "/gameControls", params = "action=delete")
-	// public String deleteGameData(GameDTO gameDTO) {
-	// 	return "index";
-	// }
-
 	@RequestMapping(value = "/removeGameData")
 	public String removeGameData(GameDTO gameDTO) {
 		logger.info("entering the updategamedata endpoint");
@@ -170,19 +167,6 @@ public class VidyaViewerController {
 		}
 		return "games_remove";
 
-	}
-
-	@RequestMapping(value = "/searchGames", method = RequestMethod.GET)
-	public String searchGames(
-			@RequestParam(value = "searchTerm", required = false, defaultValue = "") String searchTerm) {
-		logger.info("entering searchGames endpoint");
-		String enchancedTerm = searchTerm + "";
-		try {
-			List<GameDTO> fetchgames = serviceDAO.fetchGamesService(enchancedTerm);
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-		return ("index");
 	}
 
 	@RequestMapping(value = "/loadGames", method = RequestMethod.GET)

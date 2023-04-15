@@ -16,10 +16,8 @@
 		<h1>
 			Update a Game: 
 		</h1>
-		<p th:text="${gameDTO}"></p>
-
+		<p>If you wish to update a game directly from this page, you must supply the valid GameID</p>
 		<form class="form-group" action="#" th:action="@{/updateGameData}" th:object="${gameDTO}" method="GET">
-		
 			GameID: <input id="gameid" class="form-control" type="text" name="gameID" th:field="*{gameID}"/><br/>
 			Title: <input class="form-control" type="text" name="title" th:field="*{title}"/><br/>
 			Critic Score: <input class="form-control" type="text" name="criticScore" th:field="*{criticScore}"/><br/>
